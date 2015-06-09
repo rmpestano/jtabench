@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomee>
+    <Resource id="jtaPu" type="DataSource">
+        JdbcDriver org.h2.Driver
+        JdbcUrl jdbc:h2:mem:testJta;DB_CLOSE_DELAY=-1
+        UserName sa
+        Password
+        JtaManaged true
+        JdbcInterceptors StatementCache(prepared=true,callable=true,max=128)
+    </Resource>
+
+</tomee>
