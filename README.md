@@ -18,7 +18,15 @@ Browse http://localhost:8080/jtabench/index.html
 
 ### Benchmarking
 
-Open the jtabench.jmx file in Apache JMeter and activate one of the two sites.
-Between the rounds invoke
-http://localhost:8080/jtabench/customer/reset
-to clean all customers from the DB again
+run command:
+```
+mvn gatling:execute -P perf
+```
+
+
+For the torture mode use:
+```
+ mvn gatling:execute -Dtorture -P perf
+```
+
+it will run the simulation for a longer period (~7min instead of 50 sec) with more users (300 instead of 100)
