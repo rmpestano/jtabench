@@ -47,4 +47,4 @@ Here is a report generated for torture mode:
 
 [JTA and NON JTA **Torture** simulation report](http://rmpestano.github.io/jtabench/jtaandnonjtasimulation_torture/index.html)
 
-Here we can see some difference in response time where non jta has a slight better performance (as expected)
+Now we can see some difference in response time where non jta has a slight better performance (as expected)
