@@ -28,6 +28,15 @@ For the torture mode use:
  mvn gatling:execute -Dtorture -P perf
 ```
 
-it will run the simulation for a longer period (~7min instead of 50 sec) with more users (300 instead of 100)
+it will run the simulations for a longer period (~7min instead of 50 sec) with more users simultaneously
 
-Note that each user will perform 100 database operations on each request
+**Note** that each user will perform 100 database operations on each request
+
+### Results
+Resulting reports can be accessed on links below:
+
+* [JTA simulation report](http://rmpestano.github.io/jtabench/jtasimulation/index.html)
+* [NON JTA simulation report](http://rmpestano.github.io/jtabench/nonjtasimulation/index.html)
+* [JTA and NON JTA simulation report](http://rmpestano.github.io/jtabench/jtaandnonjtasimulation/index.html)
+
+the above simulations 
