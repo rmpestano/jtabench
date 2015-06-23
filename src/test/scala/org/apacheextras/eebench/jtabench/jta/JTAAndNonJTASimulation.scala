@@ -5,7 +5,7 @@ import io.gatling.http.Predef._
 import scala.concurrent.duration._
 import org.apacheextras.eebench.jtabench.jta.Commons._
 
-class JTASimulation extends Simulation {
+class JTAAndNonJTASimulation extends Simulation {
 
 
 
@@ -13,10 +13,19 @@ class JTASimulation extends Simulation {
     .get("jta")
     .check(status.in(200),okCheck)
 
+  val nonJtaRequest = http("non jta request")
+    .get("nonjta")
+    .check(status.in(200),okCheck)
+ 
 
   val jtaScenario = scenario("jta scenario")
     .exec(jtaRequest)
     .pause(10 milliseconds)// users don't click buttons at the same time
+
+
+  val nonJtaScenario = scenario("non jta scenario")
+    .exec(nonJtaRequest)
+    .pause(10 milliseconds)
 
   val resetScenario = scenario("reset scenario")
     .exec(resetRequest)
@@ -27,6 +36,9 @@ class JTASimulation extends Simulation {
     jtaScenario.inject(
       rampUsersPerSec(initialUsersPerScenario) to (totalUsersPerScenario) during(scenarioDurationInSeconds seconds)
      ),
+    nonJtaScenario.inject(
+      rampUsersPerSec(initialUsersPerScenario) to (totalUsersPerScenario) during(scenarioDurationInSeconds seconds)
+    ),
      resetScenario.inject(
        atOnceUsers(1),
        constantUsersPerSec(1) during (scenarioDurationInSeconds seconds)
@@ -38,9 +50,9 @@ class JTASimulation extends Simulation {
       global.successfulRequests.percent.greaterThan(95),
       global.responseTime.max.lessThan(expectedMaxResponseTime),
       global.responseTime.mean.lessThan(expectedMeanResponseTime),
-      global.requestsPerSec.greaterThan(expectedRequestPerSecond)
-     /* details("jta request").requestsPerSec.greaterThan(expectedRequestPerSecond/2),
-      details("non jta request").requestsPerSec.greaterThan(expectedRequestPerSecond/2)*/
+      global.requestsPerSec.greaterThan(expectedRequestPerSecond),
+      details("jta request").requestsPerSec.greaterThan(expectedRequestPerSecond/2),
+      details("non jta request").requestsPerSec.greaterThan(expectedRequestPerSecond/2)
 
     )
 

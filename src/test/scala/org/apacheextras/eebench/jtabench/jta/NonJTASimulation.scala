@@ -16,7 +16,7 @@ class NonJTASimulation extends Simulation {
 
    val nonJtaScenario = scenario("non jta scenario")
      .exec(nonJtaRequest)
-     .pause(50 milliseconds)
+     .pause(10 milliseconds)
 
    val resetScenario = scenario("reset scenario")
      .exec(resetRequest)
@@ -28,6 +28,7 @@ class NonJTASimulation extends Simulation {
        rampUsersPerSec(initialUsersPerScenario) to (totalUsersPerScenario) during(scenarioDurationInSeconds seconds)
      ),
       resetScenario.inject(
+        atOnceUsers(1),
         constantUsersPerSec(1) during (scenarioDurationInSeconds seconds)
      )
 

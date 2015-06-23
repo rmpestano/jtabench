@@ -32,7 +32,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(urlPatterns = "/customer/*")
 public class CustomerServlet extends HttpServlet{
-    private static final int COUNT=1000;
+    private static final int COUNT=100;
 
     private @Inject CustomerEjb customerEjb;
     private @Inject CustomerCdiService customerCdiService;

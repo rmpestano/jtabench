@@ -11,8 +11,8 @@ object Commons {
   var totalUsersPerScenario = 60
   var initialUsersPerScenario = 1
   var scenarioDurationInSeconds = 30 //2 user per second
-  var expectedMaxResponseTime = 50
-  var expectedMeanResponseTime = 20
+  var expectedMaxResponseTime = 1000
+  var expectedMeanResponseTime = 30
   var expectedRequestPerSecond = 20
 
 
