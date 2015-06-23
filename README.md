@@ -39,6 +39,6 @@ Resulting reports can be accessed on links below:
 * [NON JTA simulation report](http://rmpestano.github.io/jtabench/nonjtasimulation/index.html)
 * [JTA and NON JTA simulation report](http://rmpestano.github.io/jtabench/jtaandnonjtasimulation/index.html)
 
-the above simulations were ran without torture flag on a core I5(3470) CPU and GB RAM using JDK 8(u40).
+the above simulations were ran without torture flag on a core I5(3470) CPU and 8GB RAM using JDK 8(u40).
 
 For now the results are the same for both modes, maybe the simulation needs to be reworked or maybe JTA perform same as non JTA. 
