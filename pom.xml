@@ -160,6 +160,10 @@
                         <groupId>io.gatling</groupId>
                         <artifactId>gatling-maven-plugin</artifactId>
                         <version>2.1.6</version>
+                        <configuration>
+                            <runMultipleSimulations>true</runMultipleSimulations>
+                            <!--<simulationClass>org.apacheextras.eebench.jtabench.jta.JTASimulation</simulationClass>-->
+                        </configuration>
                         <executions>
                             <execution>
                                 <goals>
