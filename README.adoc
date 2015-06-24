@@ -33,6 +33,7 @@ it will run the simulations for a longer period (~7min instead of 50 sec) with m
 . access simulation reports in jtabench/target/gatling
 
 . stop tomee
++
 ----
 mvn tomee:stop
 ----
