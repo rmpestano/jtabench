@@ -88,6 +88,16 @@
         <finalName>jtabench</finalName>
 
         <plugins>
+        	 <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
@@ -107,7 +117,7 @@
                 <version>${tomee.version}</version>
                 <configuration>
                     <tomeeVersion>${tomee.version}</tomeeVersion>
-                    <tomeeClassifier>${tomee.classifier}</tomeeClassifier>
+                    <tomeeClassifier>${tomee.classifier}</tomeeClassifier>                   
                     <synchronization>
                         <extensions>
                             <extension>.class</extension>
@@ -161,6 +171,7 @@
                         <artifactId>gatling-maven-plugin</artifactId>
                         <version>2.1.6</version>
                         <configuration>
+                            <failOnError>false</failOnError>
                             <runMultipleSimulations>true</runMultipleSimulations>
                             <!--<simulationClass>org.apacheextras.eebench.jtabench.jta.JTASimulation</simulationClass>-->
                         </configuration>
